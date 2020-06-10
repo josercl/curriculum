@@ -1,0 +1,21 @@
+name: LaTeX compilation
+uses: dante-ev/latex-action@v0.2.0
+
+on:
+  push:
+    branches: [ master ]
+
+jobs:
+  build_latex:
+    runs-on: ubuntu-18.04
+    steps:
+      - name: Set up Git repository
+        uses: actions/checkout@v2
+      - name: Compile Curriculum (es)
+        uses: dante-ev/latex-action@master
+        with:
+          root_file: curriculum.tex
+      - name: Compile Curriculum (en)
+        uses: dante-ev/latex-action@master
+        with:
+          root_file: curriculum_en.tex
